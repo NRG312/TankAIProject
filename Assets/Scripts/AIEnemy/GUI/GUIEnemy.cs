@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor;
+using UnityEngine.UI;
 
 public class GUIEnemy : MonoBehaviour
 {
@@ -12,6 +11,7 @@ public class GUIEnemy : MonoBehaviour
     
     [SerializeField] private TMP_Text hpText;
     [SerializeField] private GameObject ricochetImage;
+    [SerializeField] private Image sliderImage;
 
     #region Properties
 

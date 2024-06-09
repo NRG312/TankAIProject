@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class TowerRotationAI : MonoBehaviour
 {
-    [SerializeField] private GameObject towerTank;
+    [SerializeField] private GameObject turretTank;
     
     //Bools
     private bool _canSeeThePlayer;
@@ -15,16 +16,26 @@ public class TowerRotationAI : MonoBehaviour
     //Rotating variables
     private Quaternion _startPositionRot;
     private float _randomValue;
+    private Vector3 _oldEulerAngles;
     
     //Time counter for new random value
     private float _time;
-    
-    
+
+    private void Start()
+    {
+        _oldEulerAngles = turretTank.transform.eulerAngles;
+    }
+
     private void Update()
     {
+        _canSeeThePlayer = EnemyAI.instance.canSeeThePlayer;
+        
         if (_canSeeThePlayer == false)
         {
             RandomRotatePosition();
+        }else if (_canSeeThePlayer)
+        {
+            LookOnPlayer();
         }
     }
     
@@ -47,9 +58,28 @@ public class TowerRotationAI : MonoBehaviour
         
         //funtion rotating Turret Tank on random positions
         Quaternion direction = _startPositionRot * Quaternion.AngleAxis(_randomValue, Vector3.up);
-        towerTank.transform.localRotation =
-            Quaternion.Slerp(towerTank.transform.localRotation, direction, 7f * Time.deltaTime);
-        towerTank.transform.Rotate(Vector3.up * _randomValue * Time.deltaTime);
+        turretTank.transform.localRotation =
+            Quaternion.Slerp(turretTank.transform.localRotation, direction, 7f * Time.deltaTime);
+        turretTank.transform.Rotate(Vector3.up * _randomValue * Time.deltaTime);
 
+    }
+
+    private void LookOnPlayer()
+    {
+        //Checking that turret is rotating and send true to shoot
+        if (_oldEulerAngles == turretTank.transform.eulerAngles)
+        {
+            EnemyAI.instance.canShoot = true;
+        }else
+        {
+            _oldEulerAngles = turretTank.transform.eulerAngles;
+            EnemyAI.instance.canShoot = false;
+        }
+        //Rotating to player
+        //setting angle
+        Quaternion angle = Quaternion.LookRotation(EnemyAI.instance.target.transform.position - turretTank.transform.position);
+        //look at Player in a smooth transition
+        Quaternion lookOn = Quaternion.RotateTowards(turretTank.transform.rotation, angle, 7f * Time.deltaTime);
+        turretTank.transform.rotation = lookOn;
     }
 }

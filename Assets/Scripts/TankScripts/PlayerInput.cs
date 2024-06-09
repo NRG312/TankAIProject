@@ -42,7 +42,7 @@ public class PlayerInput : MonoBehaviour
     //musze usunac eventy ktore nie potrzebuja uzywania kilku skryptow np changebullet moge zrobic przez singletona
     //skonczylem na robieniu GUI  ulepsz te GUI bo jest brzydkie, i musze pomyslec czy te GUi bedzie ciagle wyswietlane czy tylko jak sie patrze na przeciwnika <== tutaj skonczylem przed przeciwnikiem i tutaj wroc
     
-    //musze przemyslec jak zrobic patrzenie sie na gracza i wysylanie informacji ze mozna strzelic i ze sie patrzy prosto na niego
+    //skonczylem na tym ze musze zrobic gui ze sie wyswietla na 10 sekund,musze pomyslec nad jakims osobnym skryptem ktory bedzie czytal trafienie przeciwnika albo gracza bo mam z tym problem, no i musze wlasnie ogarnac skrypt nad wyslaniem informacji ile hp zabiera graczowi i wyswietlalo na gui Gracza
     //skonczylem na robieniu randomowym obrotu wiezyczki i chce jeszcze wprowadzic tam funkcje patrzenia na gracza jak bedzie go widzial i jak bedzie patrzyl sie na niego bedzie wysylal boola ze mozna strzelac i trzeba dokonczyc strzelanie i enemy bedzie zrobiony, przemysl czy moze nie zrobic osobnego skryptu na obracanie bo wtedy moglbym ciagle obracac wiezyczke w miejscu gdzie byl gracz //jak bede blisko zrobienia musze poukladac dane i opisac funkcje oraz dane co i jak
     //pomysl zeby zrobic dwie podlogi jedna dla nev masha przeciwnika a druga bedzie zapelnieniem zeby tam nie chodzil
     //w przeciwniku musze zrobic skrypty na poruszanie sie po mapie,strzelanie,na pole widocznosci jak zauwazy gracza, eventami bedzie sie dogadywal pomiedzy skryptami albo znajde lepszy pomysl

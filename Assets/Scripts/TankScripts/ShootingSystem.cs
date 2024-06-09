@@ -68,7 +68,7 @@ public class ShootingSystem : MonoBehaviour
         }
     }
     //Target Hit and deal DMG
-    private void TargetHit(GameObject TargetHit,int armor)
+    private void TargetHit(GameObject TargetHit,int armor)//to bedzie osobny skrypt i chyba bedzie pobieralo z danego czolgu komponent z shooting system(albo wymysle jakis lepszy skrypt pod pen)
     {
         TargetHit.GetComponent<HealthSystem>().TakeHP(equipedBullet.ReturnArmorPen() + canonPenetration ,armor,equipedBullet.ReturnDMG());
     }

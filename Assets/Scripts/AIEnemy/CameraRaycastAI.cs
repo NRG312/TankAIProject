@@ -13,7 +13,10 @@ public class CameraRaycastAI : MonoBehaviour
     {
         AI = GetComponent<EnemyAI>();
         target = GameObject.FindWithTag("Player");
+        AI.target = target;
     }
+    
+    //checking that camera sees the player and wheter target is the same as object
     private bool I_Can_See(Camera c,GameObject Object)
     {
         RaycastHit hit;
@@ -22,7 +25,6 @@ public class CameraRaycastAI : MonoBehaviour
         if (GeometryUtility.TestPlanesAABB(planes, Object.GetComponent<Collider>().bounds))
         {
             AI.canSeeThePlayer = true;
-            AI.target = target;
             if (Physics.Linecast(c.transform.position,Object.GetComponent<Collider>().bounds.center,out hit))
             {
                 if (hit.transform.gameObject != Object.transform.gameObject)
@@ -38,7 +40,6 @@ public class CameraRaycastAI : MonoBehaviour
 
         return false;
     }
-    
 
     private void Update()
     {

@@ -3,14 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : Singleton<EnemyAI>
 {
     public EnemyState currentState;
-    [Space(10f)] 
-    //public AttackState attackState;
-
-
+    [Space(10f)]
     public bool canSeeThePlayer;
+    public bool canShoot;
     [HideInInspector]public GameObject target;
     private void Update()
     {

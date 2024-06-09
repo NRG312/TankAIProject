@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,34 +7,34 @@ using UnityEngine.AI;
 public class AttackState : EnemyState
 {
     public ChaseState chaseState;
-
-    #region Properties
-
-    private bool _reloading;
+    [Space(5f)]
     
+    #region Properties
     private bool _timeToChase;
     private float _time;
     
     private bool _isMoving = true;
-    private bool _lookingOnTarget;
 
     #endregion
     
-    #region Objects
-
-    [SerializeField] private GameObject target;
+    #region Base Objects
+    [Header("Base Object")]
+    private GameObject target;
     [HideInInspector] public Vector3 _lastPosTarget;
-    [Space(10f)] 
     [SerializeField] private NavMeshAgent nav;
-    [Space(10f)] 
     [SerializeField] private GameObject turretTank;
 
     #endregion
+
+    private void Start()
+    {
+        target = GameObject.FindWithTag("Player");
+    }
+
     public override EnemyState DoState(bool canSeePlayer,GameObject target)
     {
-        LookAtPlayer();
-        _lookingOnTarget = canSeePlayer;
-        if (_lookingOnTarget == true)
+        WaitToChasePlayer();
+        if (canSeePlayer) //musze przemyslec ten skrypt bo go wysyla do chasestate a nie wyglada to za dobrze
         {
             _lastPosTarget = target.transform.position;
         }
@@ -57,20 +58,11 @@ public class AttackState : EnemyState
         _isMoving = true;
         nav.isStopped = false;
     }
-    private void LookAtPlayer()
+    private void WaitToChasePlayer()
     {
         if (_isMoving == true)
         {
             StopMovingTank();
-        }
-
-        if (_lookingOnTarget)
-        {
-            /*//setting angle
-            Quaternion angle = Quaternion.LookRotation(target.transform.position - turretTank.transform.position);
-            //look at target in a smooth transition
-            Quaternion _lookOn = Quaternion.RotateTowards(turretTank.transform.rotation, angle, 6f * Time.deltaTime);
-            turretTank.transform.rotation = _lookOn;*/
         }
         else
         {
@@ -87,14 +79,5 @@ public class AttackState : EnemyState
     {
         nav.isStopped = true;
         _isMoving = false;
-    }
-    private void Shoot()
-    {
-        
-    }
-
-    private IEnumerator Reload()
-    {
-        yield return new WaitForSeconds(1);
     }
 }
