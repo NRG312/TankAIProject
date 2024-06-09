@@ -92,7 +92,8 @@ public class GUIEnemy : MonoBehaviour
     }
     private int ReturnHP()
     {
-        return HealthSystem.instance.HP;
+        int Hp = GetComponent<HealthSystem>().HP;
+        return Hp;
     }
     
     //Animations GUI

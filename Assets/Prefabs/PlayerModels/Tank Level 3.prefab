@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7630985127328042970}
   - component: {fileID: 7643919623456592081}
+  - component: {fileID: 6017178227780069620}
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
@@ -55,6 +56,19 @@ CapsuleCollider:
   m_Height: 7.35
   m_Direction: 1
   m_Center: {x: 1.79, y: 0.09, z: 0.57}
+--- !u!114 &6017178227780069620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235895152403575293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6279e5e4266da42439f741cf845f63ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armor: 60
 --- !u!1 &540842839732188737
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,6 +79,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5464076050929165811}
   - component: {fileID: 7348451340636274063}
+  - component: {fileID: 2440096180835348292}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -108,6 +123,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: -3.43, y: 0.78, z: 3.82}
   m_Center: {x: -0.11, y: 1.38, z: 0.53}
+--- !u!114 &2440096180835348292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540842839732188737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6279e5e4266da42439f741cf845f63ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armor: 120
 --- !u!1 &576180558481174932
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,6 +626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2597579375584720575}
   - component: {fileID: 713060342041616345}
+  - component: {fileID: 4799777045080145042}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -643,6 +672,19 @@ CapsuleCollider:
   m_Height: 7.35
   m_Direction: 1
   m_Center: {x: -1.79, y: -0.09, z: 0.57}
+--- !u!114 &4799777045080145042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3735026043661900034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6279e5e4266da42439f741cf845f63ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armor: 60
 --- !u!1 &3776861650896525514
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,6 +732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6178777777816858117}
   - component: {fileID: 8604883219513857033}
+  - component: {fileID: 7654045725249402325}
   m_Layer: 0
   m_Name: Engine
   m_TagString: Untagged
@@ -733,6 +776,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: -4.88, y: 0.88, z: 2.68}
   m_Center: {x: -0.11, y: 1.38, z: 0.53}
+--- !u!114 &7654045725249402325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4407139099818194921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6279e5e4266da42439f741cf845f63ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armor: 40
 --- !u!1 &4515775490049255927
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +799,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6014591677075947193}
   - component: {fileID: 1864803286603468015}
+  - component: {fileID: 8358027942444586326}
   m_Layer: 0
   m_Name: Center
   m_TagString: Untagged
@@ -786,6 +843,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: -4.86, y: 0.78, z: 4.88}
   m_Center: {x: -0.11, y: 1.38, z: 0.53}
+--- !u!114 &8358027942444586326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515775490049255927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6279e5e4266da42439f741cf845f63ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armor: 90
 --- !u!1 &5535249105429596963
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,6 +1027,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4222432006658795741}
   - component: {fileID: 4725779974613764227}
+  - component: {fileID: 237789657636466357}
   m_Layer: 0
   m_Name: Front
   m_TagString: Untagged
@@ -1000,3 +1071,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: -4.88, y: 0.88, z: 0.75}
   m_Center: {x: -0.11, y: 1.38, z: 0.53}
+--- !u!114 &237789657636466357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7446835372926046392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6279e5e4266da42439f741cf845f63ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armor: 100

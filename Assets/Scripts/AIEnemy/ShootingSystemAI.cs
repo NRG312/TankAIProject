@@ -11,13 +11,9 @@ public class ShootingSystemAI : MonoBehaviour
     [SerializeField] private int timeReloading;
     [SerializeField] private float speedShot;
 
-    private bool _isReloading;
-    private IEnumerator coroutine;
+    private bool _isReloading = false;
+    private float timer;
     
-    private void Start()
-    {
-        coroutine = Reload(timeReloading);
-    }
 
     private void Update()
     {
@@ -26,22 +22,38 @@ public class ShootingSystemAI : MonoBehaviour
             Shoot();
         }
     }
-
+    
     private void Shoot()
     {
         if (_isReloading == false)
         {
             GameObject newShell = Instantiate(projectTile, positionShoot.transform.position, positionShoot.transform.rotation,positionShoot.transform);
             newShell.GetComponent<Rigidbody>().velocity = speedShot * positionShoot.transform.forward;
-            StartCoroutine(coroutine);
+            
+            ReloadBullet();
         }
-    }
 
-    private IEnumerator Reload(int reloading)
+        /*if (_isReloading == true)
+        {
+            timer += Time.deltaTime;
+            Debug.Log(timer);
+            if (timer >= timeReloading)
+            {
+                timer = 0;
+                _isReloading = false;
+            }
+        }*/
+    }
+    
+    private void ReloadBullet()
     {
         _isReloading = true;
-        yield return new WaitForSeconds(reloading);
-        _isReloading = false;
-        StopCoroutine(coroutine);
+        StartCoroutine(TimeToReloadBullet());
     }
+    private IEnumerator TimeToReloadBullet()
+    {
+        yield return new WaitForSeconds(timeReloading);
+        _isReloading = false;
+    }
+    
 }

@@ -11,15 +11,20 @@ public class ShootingSystem : MonoBehaviour
     private BulletBase equipedBullet;
     private GameObject BulletObject;
     
-    [Header("Shooting")]
-    [SerializeField] private GameObject canonTank;
-    [Space(10f)]
-    [SerializeField] private int canonPenetration; //On that moment i just add more pen on various tanks
-    [SerializeField] private float speedShot;
-    [SerializeField] private int reloading;
-
     #region Properties
-
+    
+        [Header("Shooting")]
+        [SerializeField] private GameObject canonTank;
+        [Space(10f)]
+        [SerializeField] private int canonPenetration; //On that moment i just add more pen on various tanks
+        public int CanonPenetration
+        {
+            get { return canonPenetration; }
+            private set { canonPenetration = value; }
+        }
+        [SerializeField] private float speedShot;
+        [SerializeField] private int reloading;
+    
         private bool _reload = false;
 
     #endregion
@@ -28,14 +33,14 @@ public class ShootingSystem : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         //Events
-        EventManager.onTargetHit.AddListener(TargetHit);
+        //EventManager.onTargetHit.AddListener(TargetHit);
         EventManager.onChangeBullet.AddListener(ChangeBullet);
         EventManager.onReloadBullet.AddListener(ReloadBullet);
     }
 
     private void OnDisable()
     {
-        EventManager.onTargetHit.RemoveListener(TargetHit);
+        //EventManager.onTargetHit.RemoveListener(TargetHit);
         EventManager.onChangeBullet.RemoveListener(ChangeBullet);
         EventManager.onReloadBullet.RemoveListener(ReloadBullet);
     }
@@ -66,11 +71,6 @@ public class ShootingSystem : MonoBehaviour
             EventManager.onShoot.Invoke(1);
             PlayAnimation("TurretGunAnimation");
         }
-    }
-    //Target Hit and deal DMG
-    private void TargetHit(GameObject TargetHit,int armor)//to bedzie osobny skrypt i chyba bedzie pobieralo z danego czolgu komponent z shooting system(albo wymysle jakis lepszy skrypt pod pen)
-    {
-        TargetHit.GetComponent<HealthSystem>().TakeHP(equipedBullet.ReturnArmorPen() + canonPenetration ,armor,equipedBullet.ReturnDMG());
     }
     
     //Reloading Bullet

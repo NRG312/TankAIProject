@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthSystem : Singleton<HealthSystem>
+public class HealthSystem : MonoBehaviour
 {
     [SerializeField] private int m_HP;
     public int HP

@@ -5039,6 +5039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootExplosion: {fileID: 7051904275664051580, guid: 466c88cbb544573468c809c8ab64a208, type: 3}
   hitExplosion: {fileID: 6671477455470275088, guid: fb350a29084252a42939b7615f23a4be, type: 3}
+  equipedBullet: {fileID: 7102715147838436217}
 --- !u!54 &8749224653649063632
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5061,7 +5062,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
