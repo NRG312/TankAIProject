@@ -12,7 +12,7 @@ public class ShootingSystemAI : MonoBehaviour
     [SerializeField] private float speedShot;
 
     private bool _isReloading = false;
-    private float timer;
+    private float _timer;
     
 
     private void Update()
@@ -32,17 +32,6 @@ public class ShootingSystemAI : MonoBehaviour
             
             ReloadBullet();
         }
-
-        /*if (_isReloading == true)
-        {
-            timer += Time.deltaTime;
-            Debug.Log(timer);
-            if (timer >= timeReloading)
-            {
-                timer = 0;
-                _isReloading = false;
-            }
-        }*/
     }
     
     private void ReloadBullet()

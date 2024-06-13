@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6017178227780069620}
   m_Layer: 0
   m_Name: Right
-  m_TagString: Untagged
+  m_TagString: PlayerArmorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 2440096180835348292}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: PlayerArmorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e88a9ed1222fb4485fef1b78dbd40b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMov: 400
+  speedMov: 550
   speedRot: 15
 --- !u!114 &2035730380863328247
 MonoBehaviour:
@@ -449,7 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 773f5bafa39ff5e499afe5dbc7a90ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HP: 0
+  m_HP: 2500
 --- !u!114 &6270859596080403299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,7 +470,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3161108724992253834}
   serializedVersion: 4
-  m_Mass: 3000
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -629,7 +629,7 @@ GameObject:
   - component: {fileID: 4799777045080145042}
   m_Layer: 0
   m_Name: Left
-  m_TagString: Untagged
+  m_TagString: PlayerArmorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -735,7 +735,7 @@ GameObject:
   - component: {fileID: 7654045725249402325}
   m_Layer: 0
   m_Name: Engine
-  m_TagString: Untagged
+  m_TagString: PlayerArmorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -774,8 +774,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: -4.88, y: 0.88, z: 2.68}
-  m_Center: {x: -0.11, y: 1.38, z: 0.53}
+  m_Size: {x: -2.97, y: 0.88, z: 2.68}
+  m_Center: {x: -0.11, y: 1.59, z: 0.53}
 --- !u!114 &7654045725249402325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -802,7 +802,7 @@ GameObject:
   - component: {fileID: 8358027942444586326}
   m_Layer: 0
   m_Name: Center
-  m_TagString: Untagged
+  m_TagString: PlayerArmorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -841,8 +841,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: -4.86, y: 0.78, z: 4.88}
-  m_Center: {x: -0.11, y: 1.38, z: 0.53}
+  m_Size: {x: -3.72, y: 1.17, z: 4.88}
+  m_Center: {x: -0.11, y: 1.33, z: 0.53}
 --- !u!114 &8358027942444586326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,7 +1030,7 @@ GameObject:
   - component: {fileID: 237789657636466357}
   m_Layer: 0
   m_Name: Front
-  m_TagString: Untagged
+  m_TagString: PlayerArmorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1070,7 +1070,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: -4.88, y: 0.88, z: 0.75}
-  m_Center: {x: -0.11, y: 1.38, z: 0.53}
+  m_Center: {x: -0.11, y: 1.14, z: 0.53}
 --- !u!114 &237789657636466357
 MonoBehaviour:
   m_ObjectHideFlags: 0

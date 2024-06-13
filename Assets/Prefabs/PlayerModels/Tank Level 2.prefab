@@ -228,7 +228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2631541828757865671
 Transform:
   m_ObjectHideFlags: 0
@@ -260,13 +260,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e03d8ef42f754727adc359d3835202ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slots: []
-  pickedSlot: {fileID: 0}
-  equipedBullet: {fileID: 0}
-  shellObject: {fileID: 0}
   canonTank: {fileID: 7559921729575583226}
   canonPenetration: 20
   speedShot: 200
+  reloading: 0
 --- !u!114 &4986923987932684609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e88a9ed1222fb4485fef1b78dbd40b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMov: 400
+  speedMov: 650
   speedRot: 45
 --- !u!114 &1671231391360226963
 MonoBehaviour:
@@ -293,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 773f5bafa39ff5e499afe5dbc7a90ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 1350
+  m_HP: 1800
 --- !u!54 &6081730415460524862
 Rigidbody:
   m_ObjectHideFlags: 0

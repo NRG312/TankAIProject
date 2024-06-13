@@ -1,9 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class RotationGUI : MonoBehaviour
 {
-    public void LookAtPlayer(GameObject playerTank)
+    private GameObject _player;
+
+    private void Start()
     {
-        transform.LookAt(playerTank.transform.position);
+        _player = GameObject.FindWithTag("Player");
+    }
+
+    public void LookAtPlayer()
+    {
+        transform.LookAt(_player.transform.position);
     }
 }
