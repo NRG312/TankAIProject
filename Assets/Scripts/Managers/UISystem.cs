@@ -17,6 +17,11 @@ public class UISystem : MonoBehaviour
         EventManager.onReloadLevel.RemoveListener(ReloadLevel);
     }
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -24,11 +29,13 @@ public class UISystem : MonoBehaviour
             if (MenuGame.enabled == false) 
             {
                 MenuGame.enabled = true;
+                Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0f;
             }
             else
             {
                 MenuGame.enabled = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 Time.timeScale = 1f;
             }
         }
@@ -44,6 +51,7 @@ public class UISystem : MonoBehaviour
     {
         MenuGame.enabled = false;
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void QuitToMenu()
