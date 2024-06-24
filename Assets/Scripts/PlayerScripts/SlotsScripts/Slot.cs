@@ -15,6 +15,8 @@ public class Slot : MonoBehaviour
     [Space(10f)] 
     [SerializeField] private BulletBase bulletToEquip;
 
+    
+
     #region Properties
         private int _amountBullet;
         private bool _selected;
