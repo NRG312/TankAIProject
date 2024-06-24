@@ -37,13 +37,13 @@ public class CameraController : MonoBehaviour
         if (isScoping == false)
         {
             gunPointCamera.gameObject.SetActive(false);
-            transform.position = Vector3.Lerp(transform.position, camTarget.position, posLerp);
-            transform.rotation = Quaternion.Lerp(transform.rotation,camTarget.rotation,rotLerp);
+            transform.position = Vector3.Lerp(transform.position, camTarget.position, posLerp * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation,camTarget.rotation,rotLerp * Time.fixedDeltaTime);
         }else if (isScoping == true)
         {
             gunPointCamera.gameObject.SetActive(true);
-            transform.position = Vector3.Lerp(transform.position, camTarget.position, posLerp);
-            transform.rotation = Quaternion.Lerp(transform.rotation,camTarget.rotation,rotLerp);
+            transform.position = Vector3.Lerp(transform.position, camTarget.position, posLerp * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation,camTarget.rotation,rotLerp * Time.fixedDeltaTime);
         }
     }
 }

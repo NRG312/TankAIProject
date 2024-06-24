@@ -16,7 +16,7 @@ public class PickingTank : MonoBehaviour
     
     private int _actualTankNumber = 0;
     private int _actualStatsNumber = 0;
-   
+    
     public void RightArrowChangeTank()
     {
         for (int i = _actualTankNumber; i < Tanks.Length; i++)
@@ -105,7 +105,8 @@ public class PickingTank : MonoBehaviour
             GameObject tank = Tanks[i];
             if (tank.activeInHierarchy)
             {
-                GetComponent<NewGameController>().SetTankPlayer(tank);
+                GetComponent<SettingGameController>().SetTankPlayer(tank);
+                PlayerPrefs.SetInt("PlayerTank",i);
             }
         }
     }

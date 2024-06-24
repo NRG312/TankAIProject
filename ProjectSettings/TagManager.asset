@@ -9,6 +9,7 @@ TagManager:
   - GunPointCamera
   - Floor
   - PlayerArmorCollider
+  - EnemyArmorCollider
   layers:
   - Default
   - TransparentFX

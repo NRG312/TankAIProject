@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5779218108760459921}
   m_Layer: 0
   m_Name: GameObject (3)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 8264961446285171830}
   m_Layer: 0
   m_Name: TankEngine
-  m_TagString: Enemy
+  m_TagString: EnemyArmorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 804936580542371980}
   m_Layer: 0
   m_Name: TankChassis
-  m_TagString: Enemy
+  m_TagString: EnemyArmorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -497,7 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6279e5e4266da42439f741cf845f63ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armor: 60
+  armor: 45
 --- !u!1 &1493696356838846397
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 6541438752057476673}
   m_Layer: 0
   m_Name: GameObject (2)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -707,7 +707,7 @@ GameObject:
   - component: {fileID: 5830918393186581074}
   m_Layer: 0
   m_Name: TankTracksRight
-  m_TagString: Enemy
+  m_TagString: EnemyArmorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1198,7 +1198,7 @@ Transform:
   m_GameObject: {fileID: 6917881795186081444}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.42035866, z: 0.6753214}
+  m_LocalPosition: {x: -0, y: 0.42035866, z: 0.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1236,8 +1236,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 310.1
-  field of view: 75
+  far clip plane: 1000
+  field of view: 120
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -1366,6 +1366,10 @@ MonoBehaviour:
   canSeeThePlayer: 0
   canShoot: 0
   target: {fileID: 0}
+  scripts:
+  - {fileID: 5581218276741499809}
+  - {fileID: 3420941450552295456}
+  - {fileID: 2819308497289077298}
 --- !u!114 &5581218276741499809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1379,6 +1383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretTank: {fileID: 7523881129052959991}
+  _speedRot: 12
 --- !u!114 &1571033656921577037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1424,7 +1429,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectTile: {fileID: 1825373322253354741, guid: fbbf52ebd758b3e4bb50f8ea01ad33e9, type: 3}
   positionShoot: {fileID: 7374915883699225636}
-  timeReloading: 7
+  canonPenetration: 0
+  timeReloading: 5
   speedShot: 250
 --- !u!114 &4514932818058691659
 MonoBehaviour:
@@ -1447,7 +1453,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7145020179548156095}
   serializedVersion: 4
-  m_Mass: 1000
+  m_Mass: 20000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1475,19 +1481,19 @@ NavMeshAgent:
   m_GameObject: {fileID: 7145020179548156095}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2
-  m_Speed: 12
+  m_Radius: 1.48
+  m_Speed: 16
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 140
+  m_AngularSpeed: 160
   m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
-  m_Height: 3
+  m_Height: 2.28
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!1 &7150519360075892651
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,7 +1653,7 @@ Transform:
   m_GameObject: {fileID: 7374915883699225636}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.37, z: 1.052}
+  m_LocalPosition: {x: -0, y: 0.37, z: 1.584}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1757,7 +1763,7 @@ GameObject:
   - component: {fileID: 4385642718938327335}
   m_Layer: 0
   m_Name: TankTurret
-  m_TagString: Enemy
+  m_TagString: EnemyArmorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1863,7 +1869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6279e5e4266da42439f741cf845f63ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armor: 65
+  armor: 50
 --- !u!1 &7905751135342479968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2014,7 +2020,7 @@ GameObject:
   - component: {fileID: 3550876442724250600}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2180,7 +2186,7 @@ GameObject:
   - component: {fileID: 6943774965077944154}
   m_Layer: 0
   m_Name: TankTracksLeft
-  m_TagString: Enemy
+  m_TagString: EnemyArmorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2345,7 +2351,7 @@ GameObject:
   - component: {fileID: 531532684054732533}
   m_Layer: 0
   m_Name: GameObject (1)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

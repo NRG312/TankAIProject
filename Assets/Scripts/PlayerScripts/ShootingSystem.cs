@@ -16,7 +16,7 @@ public class ShootingSystem : MonoBehaviour
         [Header("Shooting")]
         [SerializeField] private GameObject canonTank;
         [Space(10f)]
-        [SerializeField] private int canonPenetration; //On that moment i just add more pen on various tanks
+        [SerializeField] private int canonPenetration;
         public int CanonPenetration
         {
             get { return canonPenetration; }

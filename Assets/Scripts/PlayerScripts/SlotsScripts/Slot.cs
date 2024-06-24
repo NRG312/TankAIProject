@@ -94,6 +94,12 @@ public class Slot : MonoBehaviour
         {
             _amountBullet -= amount;
             amountBulletsTxt.text = _amountBullet.ToString();
+            if (_amountBullet == 0)
+            {
+                BlockSlot();
+                _selected = false;
+                //EventManager.onChangeBullet.Invoke(null); moze cos z tego wymysle
+            }
         }
     }
     

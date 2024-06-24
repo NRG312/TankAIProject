@@ -18,6 +18,11 @@ public class HealthSystemEnemy : MonoBehaviour
             int randomDMG = Random.Range(DMG[0], DMG[1]);
             int DMGPen = armorPen + randomDMG + highPen;
             m_HP -= DMGPen;
+            if (HP <= 0)
+            {
+                HP = 0;
+                EventManager.onDeathEnemy.Invoke();
+            }
             return;
         }else if (ArmorPen < Armor)
         {

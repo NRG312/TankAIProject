@@ -16,9 +16,9 @@ public class AmmoController : MonoBehaviour
 
     private void LoadData()
     {
-        amountBullets[0] = 10;
-        amountBullets[1] = 5;
-        amountBullets[2] = 0;
+        amountBullets[0] = 10;           //na ten moment nie wprowadzilem funkcji na rozne ilosci amunicji do czolgow
+        amountBullets[1] = 10;
+        amountBullets[2] = 5;
         SendDataOnStartGame();
     }
     private void SendDataOnStartGame()

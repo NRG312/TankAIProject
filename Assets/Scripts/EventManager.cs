@@ -19,20 +19,16 @@ public class EventManager : MonoBehaviour
     public static UnityEvent onRicochet = new UnityEvent();
     public static UnityEvent onScoping = new UnityEvent();
     
-    
     //Game Events
     public static UnityEvent onDeathPlayer = new UnityEvent();
     public static UnityEvent onDeathEnemy = new UnityEvent();
 
-    public static UnityEvent onPlayerWin = new UnityEvent();
-    public static UnityEvent onEnemyWin = new UnityEvent();
-    
+    public static UnityEvent onReloadLevel = new UnityEvent();
     
     //Start Game Events
     //public static UnityEvent<int, int, int> onAmountBullets = new UnityEvent<int, int, int>();         moge uzyc delegate i wtedy bede mial 3 rozne dane w 1 delegacie
     public static UnityEvent<GameObject> onPickTankPlayer = new UnityEvent<GameObject>();
     public static UnityEvent<Difficult> onPickDifficult = new UnityEvent<Difficult>();
-    public static UnityEvent<AssetReference> onPickMap = new UnityEvent<AssetReference>();
     public static UnityEvent onStartNewGame = new UnityEvent();
 
 

@@ -52,7 +52,6 @@ public class SlotsController : MonoBehaviour
         {
             ChangeSlot(2);
         }
-        
     }
     //Sending amount of specified shells
     public void SendAmountBullets(int[] amount)
@@ -90,12 +89,15 @@ public class SlotsController : MonoBehaviour
                 {
                     case 2:
                         blockSlot3 = true;
+                        blockChanging = false;
                         break;
                     case 1:
                         blockSlot2 = true;
+                        blockChanging = false;
                         break;
                     case 0:
                         blockSlot1 = true;
+                        blockChanging = false;
                         break;
                 }
             }

@@ -5,6 +5,9 @@ public class Difficult : MonoBehaviour
 {
     [SerializeField] private int penEnemy;
     [SerializeField] private GameObject tankEnemy;
+    
+    //
+    public int number;
     public int ReturnPenEnemy()
     {
         return penEnemy;

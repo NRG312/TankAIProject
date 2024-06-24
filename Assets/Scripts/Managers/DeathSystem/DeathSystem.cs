@@ -10,10 +10,6 @@ public class DeathSystem : MonoBehaviour
     private MeshRenderer[] _playerMesh;
     private MeshRenderer[] _enemyMesh;
     
-    private bool _playerWin;
-    private bool _enemyWin;
-    private float _timer;
-    
     [Header("Death Tanks Components")]
     [SerializeField] private GameObject explosionSfx;
 
@@ -26,28 +22,6 @@ public class DeathSystem : MonoBehaviour
         _enemyTank = GameObject.FindWithTag("Enemy");
         _playerMesh = _playerTank.GetComponentsInChildren<MeshRenderer>();
         _enemyMesh = _enemyTank.GetComponentsInChildren<MeshRenderer>();
-    }
-    private void Update()
-    {
-        if (_playerWin)
-        {
-            _timer += Time.deltaTime;
-            if (_timer >= 5)
-            {
-                EventManager.onPlayerWin.Invoke();
-                _playerWin = false;
-                _timer = 0;
-            }
-        }else if (_enemyWin)
-        {
-            _timer += Time.deltaTime;
-            if (_timer >= 5)
-            {
-                EventManager.onEnemyWin.Invoke();
-                _enemyWin = false;
-                _timer = 0;
-            }
-        }
     }
 
     private void OnEnable()
@@ -73,6 +47,8 @@ public class DeathSystem : MonoBehaviour
                 deathMat.color = deathMaterial.color;
             }
         }
+
+        Instantiate(explosionSfx, _enemyTank.transform.position, Quaternion.Euler(-90,0,0));
     }
 
     private void DeathPlayer()
@@ -86,5 +62,6 @@ public class DeathSystem : MonoBehaviour
                 deathMat.color = deathMaterial.color;
             }
         }
+        Instantiate(explosionSfx, _playerTank.transform.position, Quaternion.Euler(-90,0,0));
     }
 }

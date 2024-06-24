@@ -14,6 +14,7 @@ public class AttackState : EnemyState
     private float _time;
     
     private bool _isMoving = true;
+    private bool _canSeeThePlayer;
 
     #endregion
     
@@ -34,6 +35,7 @@ public class AttackState : EnemyState
     public override EnemyState DoState(bool canSeePlayer,GameObject target)
     {
         WaitToChasePlayer();
+        _canSeeThePlayer = canSeePlayer;
         if (canSeePlayer) //musze przemyslec ten skrypt bo go wysyla do chasestate a nie wyglada to za dobrze
         {
             _lastPosTarget = target.transform.position;
@@ -64,7 +66,7 @@ public class AttackState : EnemyState
         {
             StopMovingTank();
         }
-        else
+        else if(_isMoving == false && _canSeeThePlayer == false)
         {
             _time += Time.deltaTime;
             if (_time >= 5)
@@ -78,6 +80,7 @@ public class AttackState : EnemyState
     private void StopMovingTank()
     {
         nav.isStopped = true;
+        _time = 0;
         _isMoving = false;
     }
 }

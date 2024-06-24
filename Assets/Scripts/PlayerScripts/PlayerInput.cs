@@ -65,19 +65,16 @@ public class PlayerInput : MonoBehaviour
         _blockTank = true;
         GetComponentInChildren<TowerRotation>().enabled = false;
     }
-    //musze usunac eventy ktore nie potrzebuja uzywania kilku skryptow np changebullet moge zrobic przez singletona
-    
-    //skonczylem na zrobieniu funkcji smierci dla gracza blokowanie skryptow zrobilem ale musze zrobic jeszcze przeciwnika i reszte rzeczy na dole
-    //skonczylem na robieniu funkcji smierci nie skonyczlem jeszcze, ale skonczylem robic na szybko dwie mapki moze troche je poprawie dla pewnosci,zrobilem menu tylko brakuje wybor mapy i sprawdzenie czy jak wejde do gry to dobrze funkcje dzialaja
-    //brakuje mi funkcja smierci szybkie UI wygranej i przegranej,w menu wybor mapy i skrypty na wykrywanie ktora mapa zostala wybrana,dzwieki, i cala funkcja level controller i chyba wsio
-    //po smierciach musze UI dokonczyc samej gierki ze menu, a nastepnie musze zrobic 3 mapy juz w calosci a pozniej MainMenu i koniec wszystko zrobione
-    //chcialbym dodac zeby przecinicy mieli dodany peneteration jak u gracza w zaleznosci od poziomu trudnosci narazie wpisalem w bullet function plus 50 dla przeciwnika zmien to pozniej
-    //pomysl zeby zrobic dwie podlogi jedna dla nev masha przeciwnika a druga bedzie zapelnieniem zeby tam nie chodzil
-    //pomyslalem ze na mapie bedzie level controller ktory trzyma spawn pointy i dane o czolgach jakie sie wybralo i game manager bedzie trzymal te dane i podczas zaladowania mapy bedzie event ktory wysle dane do level controllera
     
     
-    //UIsystem bedzie od operowania UI
-    //Gamemanager bedzie od trzymania danych w menu gdzie sie wybiera czolg poziom trudnosci oraz mape itp.
-    //zapisz sobie animacje na przyszlosc
     
+    
+    //w przyszlosci musze zrobic zapis do gamemangera po przejsciu na nastepna scene(poziom trudnosci dodalem liczbe do nich i w samej scenie gry bedzie sprawdzala ktory czolg dodac) wszystko narazie na playerprefsach
+    //Level controller tez bedzie do poprawienia przez gamemanagera
+    ///
+    //pozniej musze takze poprawic skrypt w bulletfunction zeby nie szukac po graczach shootingsystem
+    //podczas strzalu gdy rusze wiezyczka to pocisk przemieszcza sie
+    //cameracontroller fixeddelta nie dziala na timescale
+    //funkcja ze jak nie widzi mnie przeciwnik i strzele do niego to widzi mnie na przyklad na 5 sekund
+    //skrypt osobny na wylaczenie skryptow po wygraniu labo przegraniu przeciwnika w enemyAI
 }

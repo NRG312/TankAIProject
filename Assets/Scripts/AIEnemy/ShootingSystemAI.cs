@@ -7,7 +7,13 @@ public class ShootingSystemAI : MonoBehaviour
 {
     [SerializeField] private GameObject projectTile;
     [SerializeField] private GameObject positionShoot;
-    [Space(10f)]
+    [Space(10f)] 
+    public int canonPenetration;
+    public int CanonPenetration
+    {
+        get { return canonPenetration; }
+        set { canonPenetration = value; }
+    }
     [SerializeField] private int timeReloading;
     [SerializeField] private float speedShot;
 
@@ -27,9 +33,8 @@ public class ShootingSystemAI : MonoBehaviour
     {
         if (_isReloading == false)
         {
-            GameObject newShell = Instantiate(projectTile, positionShoot.transform.position, positionShoot.transform.rotation,positionShoot.transform);
+            GameObject newShell = Instantiate(projectTile, positionShoot.transform.position, positionShoot.transform.rotation);
             newShell.GetComponent<Rigidbody>().velocity = speedShot * positionShoot.transform.forward;
-            
             ReloadBullet();
         }
     }

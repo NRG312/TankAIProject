@@ -10,7 +10,8 @@ using Random = UnityEngine.Random;
 public class TowerRotationAI : MonoBehaviour
 {
     [SerializeField] private GameObject turretTank;
-    
+
+    [SerializeField] private float _speedRot;
     //Bools
     private bool _canSeeThePlayer;
     private bool _getRandomRotation;
@@ -61,7 +62,7 @@ public class TowerRotationAI : MonoBehaviour
         //funtion rotating Turret Tank on random positions
         Quaternion direction = _startPositionRot * Quaternion.AngleAxis(_randomValue, Vector3.up);
         turretTank.transform.localRotation =
-            Quaternion.Slerp(turretTank.transform.localRotation, direction, 7f * Time.deltaTime);
+            Quaternion.Slerp(turretTank.transform.localRotation, direction, _speedRot * Time.deltaTime);
         turretTank.transform.Rotate(Vector3.up * _randomValue * Time.deltaTime);
 
     }
