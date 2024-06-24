@@ -17,21 +17,17 @@ public class CameraController : MonoBehaviour
         gunPointCamera = GameObject.FindWithTag("GunPointCamera").GetComponent<Camera>();
     }
 
-    private void Update()
+    public void Scoping()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (isScoping == true)
         {
-            if (isScoping == true)
-            {
-                isScoping = false;
-                EventManager.onScoping.Invoke();
-                return;
-            }
+            isScoping = false;
             EventManager.onScoping.Invoke();
-            isScoping = true;
+            return;
         }
+        EventManager.onScoping.Invoke();
+        isScoping = true;
     }
-
     private void LateUpdate()
     {
         if (isScoping == false)

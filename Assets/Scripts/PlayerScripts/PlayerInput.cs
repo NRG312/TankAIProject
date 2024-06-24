@@ -36,8 +36,8 @@ public class PlayerInput : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveTank();
-        RotateTank();
+        //MoveTank();
+        //RotateTank();
     }
 
     private void MoveTank()
@@ -50,7 +50,15 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    private void RotateTank()
+    public void RotateTankLeft()
+    {
+        if (_blockTank == false)
+        {
+            _rot = -Input.GetAxis("Horizontal") * speedRot * Time.deltaTime;
+            _rg.MoveRotation(_rg.rotation * UnityEngine.Quaternion.Euler(0,_rot,0));
+        }
+    }
+    public void RotateTankRight()
     {
         if (_blockTank == false)
         {
