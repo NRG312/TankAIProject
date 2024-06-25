@@ -437,7 +437,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMov: 550
   speedRot: 15
-  _blockTank: 0
 --- !u!114 &2035730380863328247
 MonoBehaviour:
   m_ObjectHideFlags: 0

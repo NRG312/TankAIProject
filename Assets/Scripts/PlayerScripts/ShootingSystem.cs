@@ -45,14 +45,7 @@ public class ShootingSystem : MonoBehaviour
         EventManager.onChangeBullet.RemoveListener(ChangeBullet);
         EventManager.onDeathPlayer.RemoveListener(BlockShooting);
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && _reload == false)
-        {
-            Shoot();
-        }
-    }
+    
     //Change Bullet in Tank
     private void ChangeBullet(BulletBase newBullet)
     {
@@ -62,17 +55,20 @@ public class ShootingSystem : MonoBehaviour
         ReloadBullet();
     }
     //Shooting
-    private void Shoot()
+    public void Shoot()
     {
-        if (BulletObject != null && _blockShoot == false)
+        if (_reload == false)
         {
-            GameObject newShell = Instantiate(BulletObject, canonTank.transform.position, canonTank.transform.rotation,canonTank.transform);
-            newShell.GetComponent<Rigidbody>().velocity = speedShot * canonTank.transform.forward;
+            if (BulletObject != null && _blockShoot == false)
+            {
+                GameObject newShell = Instantiate(BulletObject, canonTank.transform.position, canonTank.transform.rotation,canonTank.transform);
+                newShell.GetComponent<Rigidbody>().velocity = speedShot * canonTank.transform.forward;
             
-            EventManager.onReloadBullet.Invoke(reloading);
-            EventManager.onShoot.Invoke(1);
-            ReloadBullet();
-            PlayAnimation("TurretGunAnimation");
+                EventManager.onReloadBullet.Invoke(reloading);
+                EventManager.onShoot.Invoke(1);
+                ReloadBullet();
+                PlayAnimation("TurretGunAnimation");
+            }
         }
     }
     

@@ -16,24 +16,14 @@ public class UISystem : MonoBehaviour
     {
         EventManager.onReloadLevel.RemoveListener(ReloadLevel);
     }
-
-    private void Update()
+    public void ButtonOptions()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (MenuGame.enabled == false) 
         {
-            if (MenuGame.enabled == false) 
-            {
-                MenuGame.enabled = true;
-                Time.timeScale = 0f;
-            }
-            else
-            {
-                MenuGame.enabled = false;
-                Time.timeScale = 1f;
-            }
+            MenuGame.enabled = true;
+            Time.timeScale = 0f;
         }
     }
-
     //Function Game UI & Menu
     private void ReloadLevel()
     {
@@ -49,12 +39,14 @@ public class UISystem : MonoBehaviour
     public void QuitToMenu()
     {
         PlayerPrefs.DeleteAll();
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()
     {
         PlayerPrefs.DeleteAll();
+        Time.timeScale = 1f;
         Application.Quit();
     }
 }
