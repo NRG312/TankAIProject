@@ -6,14 +6,21 @@ public class CameraController : MonoBehaviour
 {
     private Transform camTarget;
     private Camera gunPointCamera;
-    /*[SerializeField] private float posLerp;
-    [SerializeField] private float rotLerp;*/
 
     private bool isScoping = false;
+    
 
-    private float Sens = 1000f;
-    private float _yaw = 0f;
-    private float _pitch = 0f;
+
+    private float Y_min = -50f;
+    private float Y_max = 50;
+
+    private float cur_x = 0f;
+    private float cur_y = 0f;
+
+    [SerializeField]private float camera_dis = 50f;
+    [SerializeField]private float camera_sens = 15f;
+
+    [SerializeField] private Joystick joy;
 
     private void Start()
     {
@@ -51,10 +58,6 @@ public class CameraController : MonoBehaviour
     #endregion
     private void Update()
     {
-        HandleInput();
-        Quaternion yawRot = Quaternion.Euler(_pitch, 0, _yaw);
-        RotateCamera(yawRot);
-
         if (isScoping == false)
         {
             gunPointCamera.gameObject.SetActive(false);
@@ -65,26 +68,17 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    private void HandleInput()
+    private void LateUpdate()
     {
-        Vector2 inputDelta = Vector2.zero;
+        cur_x += joy.Horizontal * camera_sens * Time.deltaTime;
+        cur_y -= joy.Vertical * camera_sens * Time.deltaTime;
+        cur_y = Mathf.Clamp(cur_y, Y_min, Y_max);
 
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            inputDelta = touch.deltaPosition;
-        }else if (Input.GetMouseButton(0))
-        {
-            inputDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        }
+        Vector3 dir = new Vector3(0, 0, -camera_dis);
+        Quaternion rot = Quaternion.Euler(cur_y, cur_x, 0);
 
-        _yaw = inputDelta.x * Sens * Time.deltaTime;
-        _pitch = inputDelta.y * Sens * Time.deltaTime;
-    }
-
-    private void RotateCamera(Quaternion rot)
-    {
-        transform.position = camTarget.position;
-        transform.rotation = camTarget.rotation;
+        transform.position = camTarget.position + rot * dir;
+        
+        transform.LookAt(camTarget.position);
     }
 }
