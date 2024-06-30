@@ -68,10 +68,12 @@ public class PlayerInput : MonoBehaviour
     
     
     
-    
+    //sprawdz input system, i pociski na object pooling, drzewa zachowan do AI xNode (dialkogi tez mozna robic)
     //w przyszlosci musze zrobic zapis do gamemangera po przejsciu na nastepna scene(poziom trudnosci dodalem liczbe do nich i w samej scenie gry bedzie sprawdzala ktory czolg dodac) wszystko narazie na playerprefsach
     //Level controller tez bedzie do poprawienia przez gamemanagera
     ///
+    /// nie bede zmienial narazie poruszanie sie kamery musialbym znalezc lepszy sposob bez lerpa kamera dziwnie sie zacina
+    //GUI enemy bedzie bez przerwy wysietlane
     //pozniej musze takze poprawic skrypt w bulletfunction zeby nie szukac po graczach shootingsystem
     //podczas strzalu gdy rusze wiezyczka to pocisk przemieszcza sie
     //cameracontroller fixeddelta nie dziala na timescale

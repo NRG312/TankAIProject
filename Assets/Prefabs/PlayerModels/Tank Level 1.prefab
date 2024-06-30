@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turn: {x: 0, y: 0}
-  sens: 1
+  sens: 150
 --- !u!1 &1717169726434182676
 GameObject:
   m_ObjectHideFlags: 0

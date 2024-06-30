@@ -9,8 +9,8 @@ public class CameraRot : MonoBehaviour
     [SerializeField] private float sens;
     void Update()
     {
-        turn.y += Input.GetAxis("Mouse Y") * sens;
-        turn.x += Input.GetAxis("Mouse X") * sens;
+        turn.y += Input.GetAxis("Mouse Y") * sens * Time.deltaTime;
+        turn.x += Input.GetAxis("Mouse X") * sens * Time.deltaTime;
         transform.localRotation = Quaternion.Euler(-turn.y,turn.x,0);
     }
 }
