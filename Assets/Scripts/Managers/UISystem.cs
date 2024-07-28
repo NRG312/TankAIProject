@@ -18,11 +18,8 @@ public class UISystem : MonoBehaviour
     }
     public void ButtonOptions()
     {
-        if (MenuGame.enabled == false) 
-        {
-            MenuGame.enabled = true;
-            Time.timeScale = 0f;
-        }
+         MenuGame.enabled = true;
+         Time.timeScale = 0f;
     }
     //Function Game UI & Menu
     private void ReloadLevel()
@@ -34,6 +31,7 @@ public class UISystem : MonoBehaviour
     {
         MenuGame.enabled = false;
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void QuitToMenu()
