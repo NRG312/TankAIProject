@@ -14,7 +14,7 @@ public class EventManager : MonoBehaviour
     
     //Shooting system Events
     public static UnityEvent<int> onShoot = new UnityEvent<int>();
-    public static UnityEvent<GameObject,int> onTargetHit = new UnityEvent<GameObject,int>();
+    //public static UnityEvent<GameObject,int> onTargetHit = new UnityEvent<GameObject,int>();
     public static UnityEvent onTargetHitChangeGUI = new UnityEvent();
     public static UnityEvent onRicochet = new UnityEvent();
     public static UnityEvent onScoping = new UnityEvent();

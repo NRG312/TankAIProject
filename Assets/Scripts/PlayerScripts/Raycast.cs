@@ -16,7 +16,7 @@ public class Raycast : MonoBehaviour
     #endregion
     private void Update()
     {
-        _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        /*_ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(_ray,out _hit,Mathf.Infinity,_layer))
         {
             EnableGUIEnemy();
@@ -28,12 +28,12 @@ public class Raycast : MonoBehaviour
             {
                 _target.GetComponent<GUIEnemy>().playerIsLooking = false;
             }
-        }
+        }*/
     }
 
     private void EnableGUIEnemy()
     {
-        _target = _hit.transform.gameObject;
-        _target.GetComponent<GUIEnemy>().EnableGUI();
+        /*_target = _hit.transform.gameObject;
+        _target.GetComponent<GUIEnemy>().EnableGUI();*/
     }
 }

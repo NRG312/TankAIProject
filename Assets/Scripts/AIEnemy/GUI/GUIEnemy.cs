@@ -74,7 +74,7 @@ public class GUIEnemy : MonoBehaviour
         if (canvasGUI.enabled == true)
         {
             LookAtPlayer();
-            if (playerIsLooking == false)
+            /*if (playerIsLooking == false)
             {
                 _timerEnabling += Time.deltaTime;
                 if (_timerEnabling >= 10)
@@ -86,7 +86,7 @@ public class GUIEnemy : MonoBehaviour
             else
             {
                 _timerEnabling = 0;
-            }
+            }*/
         }
     }
 

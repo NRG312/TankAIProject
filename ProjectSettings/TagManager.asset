@@ -10,6 +10,7 @@ TagManager:
   - Floor
   - PlayerArmorCollider
   - EnemyArmorCollider
+  - Joystick
   layers:
   - Default
   - TransparentFX

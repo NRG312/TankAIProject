@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlotsController : MonoBehaviour
+public class SlotsController : Singleton<SlotsController>
 {
     [SerializeField] private Slot[] slots;
     private Slot picSlot;
@@ -37,22 +37,6 @@ public class SlotsController : MonoBehaviour
     {
         blockChanging = false;
     } 
-    //
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && blockChanging == false && blockSlot1 == false)
-        {
-            ChangeSlot(0);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && blockChanging == false && blockSlot2 == false)
-        {
-            ChangeSlot(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && blockChanging == false && blockSlot3 == false)
-        {
-            ChangeSlot(2);
-        }
-    }
     //Sending amount of specified shells
     public void SendAmountBullets(int[] amount)
     {
@@ -63,17 +47,20 @@ public class SlotsController : MonoBehaviour
         }
     }
     //Picking slot
-    private void ChangeSlot(int slot)
+    public void ChangeSlot(int slot)
     {
-        for (int i = 0; i < slots.Length; i++)
+        if (blockChanging == false && blockSlot1 == false && blockSlot2 == false && blockSlot3 == false)
         {
-            picSlot = slots[slot];
-            if (prevSlot != null)
+            for (int i = 0; i < slots.Length; i++)
             {
-                prevSlot.UseSlot();
+                picSlot = slots[slot];
+                if (prevSlot != null)
+                {
+                    prevSlot.UseSlot();
+                }
+                prevSlot = picSlot;
+                picSlot.UseSlot();
             }
-            prevSlot = picSlot;
-            picSlot.UseSlot();
         }
     }
     
